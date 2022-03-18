@@ -1,0 +1,9 @@
+cat <<EOF >05_iam.yaml
+imports:
+- path: 05_iam.py
+resources:
+- name: cluster-iam
+  type: 05_iam.py
+  properties:
+    infra_id: '${main-game}'
+EOF

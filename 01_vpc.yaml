@@ -1,0 +1,18 @@
+cat <<EOF >01_vpc.yaml
+imports:
+- path: 01_vpc.py
+
+resources:
+- name: main-game
+  type: 01_vpc.py
+  properties:
+    infra_id: '<main-game>'
+    region: '${asia-southeast2}'
+    subnet-1-homescreen: '${10.1.32.0/20}'
+    subnet-2-game: '${10.1.16.0/20}'
+    subnet-3-matchmaking: '${10.1.48.0/20}'
+    subnet-4-ranking: '${10.1.64.0/20}'
+    subnet-5-inventory: '${10.1.80.0/20}'
+    subnet-6-inventory: '${10.1.96.0/20}'
+    subnet-7-lb: '${10.1.128.0/20}'
+EOF

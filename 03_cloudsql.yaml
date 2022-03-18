@@ -1,0 +1,12 @@
+imports:
+- path: 03_cloudsql.py
+
+resources:
+- name: ranking-db
+  type: 03_cloudsql.py
+  properties:
+    tier: e2-standard-16
+    region: asia-southeast-2
+    readReplicas: 1
+    failOver: true
+    replicationType: SYNCHRONOUS

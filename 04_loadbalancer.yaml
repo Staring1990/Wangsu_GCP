@@ -1,0 +1,22 @@
+cat <<EOF >04_loadbalancer.yaml
+imports:
+- path: 04_lb_int.py
+- path: 04_lb_ext.py
+resources:
+- name: gameservice-lb
+  type: 04_lb_int.py
+  properties:
+    infra_id: '${main-game}'
+    region: '${asia-southeast2}'
+- name: homescreen-lb
+  type: 04_lb_ext.py
+  properties:
+    cluster_network: '${main-game-network}'
+    control_subnet: '${subnet-7-lb}'
+    infra_id: '${main-game}'
+    region: '${asia-southeast2}'
+    zones:
+    - '${asia-southeast2-a}'
+    - '${asia-southeast2-b}'
+    - '${asia-southeast2-c}'
+EOF

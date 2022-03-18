@@ -1,0 +1,69 @@
+cat <<EOF >02_computeengine.yaml
+imports:
+- path: 02_computeengine.py
+
+resources:
+- name: 'homescreen-instance-1'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-1-homescreen}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-8'
+    root_volume_size: '100'
+- name: 'matchmaking-instance-1'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-3-matchmaking}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-8'
+    root_volume_size: '100'
+- name: 'ranking-instance-1'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-4-ranking}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-8'
+    root_volume_size: '100'
+- name: 'inventory-instance-1'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-5-inventory}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-8'
+    root_volume_size: '100'
+- name: 'inventory-instance-2'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-5-inventory}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-8'
+    root_volume_size: '100'
+- name: 'user-instance-1'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-6-user}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-8'
+    root_volume_size: '100'
+- name: 'game-instance-1'
+  type: 02_computeengine.py
+  properties:
+    infra_id: '${main-game}'
+    zone: '${asia-southeast2}'
+    compute_subnet: '${subnet-2-game}'
+    image: '${https://www.googleapis.com/compute/v1/main-game/lunix-cloud/global/images/family/centos}'
+    machine_type: 'e2-standard-16'
+    root_volume_size: '100'
+EOF
